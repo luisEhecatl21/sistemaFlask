@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<hr class="mb-5 orange">
+
+<div class="col-md-12">
+        <hr>
+    <div class="card card-body" align="center">
+        <form action="/actualizarCliente/{{ cliente.0 }}" method="POST">
+            <input class="col-md-8 form-control" type="number" name="idcliente" placeholder="idcliente"  value="{{ cliente.0}}">
+            <input class="col-md-8 form-control" type="text" name="nombre" placeholder="nombre"  value="{{ cliente.1}}">
+            <input class="col-md-8 form-control" type="text" name="telefono" placeholder="telefono" value="{{ cliente.2}}">
+            <input class="col-md-8 form-control" type="text" name="direccion" placeholder="direccion" value="{{ cliente.3}}">
+            <input class="col-md-8 form-control" type="text" name="correo" placeholder="correo" value="{{ cliente.4}}">
+            <hr>
+            <div class="col-md-3 btn-group btn-group-justified">
+                    <button class="btn btn-primary" type="submit">Guardar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

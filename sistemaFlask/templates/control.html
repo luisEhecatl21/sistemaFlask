@@ -1,0 +1,62 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+    <!--Main layout-->
+    <main class="mt-5 pt-5">
+            <div class="container">
+
+
+<div class="row">
+    <div class="col-md-12">
+            <hr>
+        <div class="card card-body" align="center">
+            <form action="/agregarCliente" method="POST">
+               <input class="col-md-8 form-control" type="number" name="idcliente" placeholder="idcliente">
+                <input class="col-md-8 form-control" type="text" name="nombre" placeholder="nombre">
+                <input class="col-md-8 form-control" type="text" name="telefono" placeholder="telefono">
+                <input class="col-md-8 form-control" type="text" name="direccion" placeholder="direccion">
+                <input class="col-md-8 form-control" type="text" name="correo" placeholder="correo">
+                <hr>
+                <div class="col-md-3 btn-group">
+                        <button class="btn btn-primary" type="submit">Agregar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+            <hr>
+            
+        <table class="table table table-striped">
+            <thead> 
+                <tr class="text-center">
+                    <td><strong>Id</strong></td>
+                    <td><strong>Nombre</strong></td>
+                    <td><strong>Telefono</strong></td>
+                    <td><strong>Direccion</strong></td>
+                    <td><strong>Correo</strong></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cliente in cliente%}
+                    <tr>
+                        <td>{{ cliente.0 }}</td>
+                        <td>{{ cliente.1 }}</td>
+                        <td>{{ cliente.2 }}</td>
+                        <td>{{ cliente.3 }}</td>
+                        <td>{{ cliente.4 }}</td>
+                        <td class="text-center">
+                            <a href="/editarCliente/{{ cliente.0 }}" class="btn btn-success">M</a>
+                            <a href="/eliminarCliente/{{ cliente.0 }}" class="btn btn-danger">E</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
